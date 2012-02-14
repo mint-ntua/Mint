@@ -17,11 +17,11 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * An event is a change “of states in cultural, social or physical systems,
+ * An event is a change of states in cultural, social or physical systems,
  * regardless of scale, brought about by a series or group of coherent physical,
- * cultural, technological or legal phenomena” (E5 Event in CIDOC CRM) or a
- * “set of coherent phenomena or cultural manifestations bounded in time and
- * space” (E4 Period in CIDOC CRM)
+ * cultural, technological or legal phenomena'(E5 Event in CIDOC CRM) or a
+ * set of coherent phenomena or cultural manifestations bounded in time and
+ * space'(E4 Period in CIDOC CRM)
  * 
  * Example:the act of painting Mona Lisa, the 2nd World War, the change of custody of Mona Lisa
  * 

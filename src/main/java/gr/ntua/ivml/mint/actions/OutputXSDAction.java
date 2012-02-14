@@ -262,7 +262,7 @@ public class OutputXSDAction extends GeneralAction implements Preparable, Servle
 		
 		try {
 			factory = new TargetConfigurationFactory(xsd);
-		} catch(Exception ex) {
+		} catch(Throwable ex) {
 			ex.printStackTrace();
 			return;
 		}

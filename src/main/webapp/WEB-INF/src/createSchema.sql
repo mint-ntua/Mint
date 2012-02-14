@@ -7,6 +7,7 @@
 
 -- terms with no parents are considered list names
 
+create language plpgsql;
 create sequence seq_users_id start with 1002;
 create table users (
 	users_id int  primary key,
@@ -135,32 +136,32 @@ create table data_upload (
 	-- for a zip file this will be pretty much the same as the db --
 	-- blob size --
 	upload_size bigint not null default -1,
-	
+
 	-- once parsed store here how many nodes were created --
 	node_count bigint not null default -1,
 
 	-- predefined status (hardcoded) 0-OK -1-ERROR others ..
 	status int not null default -2,
 	message text,
-	
+
 	-- what xml belongs to this upload
 	xml_object_id int references xml_object on delete set null,
-	
+
 	-- which xpath marks the item level (optional)
 	item_xpath_id bigint references xpath_summary on delete set null,
 
 	-- and inside the item, what label should we use for display
 	item_label_xpath_id bigint references xpath_summary on delete set null,
-	
+
 	-- oai token
 	resumption_token text,
-	
+
 	-- optional json mapping object
 	mapping_id int references mapping on delete set null,
-	
+
 	-- xsl stored here, although only for one mapping
 	-- this seems to be the new goal, restrict to one output format
-	
+
 	xsl text,
 
 	-- optional if the upload happens in a known schema that the system might
@@ -196,7 +197,7 @@ create table transformation (
 create table xml_file_root(
 	data_upload_id int references data_upload,
 	filename text,
-	
+
 	-- which node is the rootnode for this file
 	root_node_id bigint
 );
@@ -272,13 +273,13 @@ create table xml_node_master (
 -- should have foreign key here, but then we need to put parent nodes
 -- before child nodes, but then we cant have checksum from children
 	parent_node_id bigint,
-	
+
 	-- No foreign key here, delays deletes endlessly
 	xml_object_id int,
-	
+
 	-- shortcut to the xpath for this text
 	xpath_summary_id int,
-	
+
 	-- one of text, element, attribute
 	node_type smallint,
 	content text,
@@ -391,6 +392,3 @@ create table meta (
 -- upgrade the database without loosing the data (as much as that is possible) 
 
 insert into meta( meta_id, meta_key, meta_value ) values( 1, 'schema.version', '2' );
-
-
-

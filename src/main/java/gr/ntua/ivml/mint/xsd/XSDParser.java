@@ -3,6 +3,7 @@ package gr.ntua.ivml.mint.xsd;
 import java.io.File;
 import java.io.InputStream;
 import java.io.Reader;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -256,8 +257,8 @@ public class XSDParser {
 				if(particle != null) {
 // TODO: possibly problematic, min & max Occurs exist in particle before .getTerm.asElementDecl call
 // consider removing
-					int maxOccurs = particle.getMaxOccurs();
-					int minOccurs = particle.getMinOccurs();
+					BigInteger maxOccurs = particle.getMaxOccurs();
+					BigInteger minOccurs = particle.getMinOccurs();
 //					System.out.println("name: " + result.getString("name") + " " + maxOccurs + " " + minOccurs);
 					result = result.element("maxOccurs", maxOccurs).element("minOccurs",
 							minOccurs);
@@ -365,8 +366,8 @@ public class XSDParser {
 	private JSONObject processChildParticle(XSParticle p) {
 		JSONObject child = this.getElementDescription(p.getTerm()
 				.asElementDecl());
-		int maxOccurs = p.getMaxOccurs();
-		int minOccurs = p.getMinOccurs();
+		BigInteger maxOccurs = p.getMaxOccurs();
+		BigInteger minOccurs = p.getMinOccurs();
 		child = child.element("maxOccurs", maxOccurs).element("minOccurs",
 				minOccurs);
 

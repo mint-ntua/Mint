@@ -120,11 +120,12 @@ $(function() {
 			</li>
 			
 		<li><s:radio name="mth"
-			list="%{#{'ftpupload':'FTP Upload'}}" 
+			list="%{#{'ftpupload':'NTUA FTP Upload'}}" 
 			onclick=' $(":input").attr("disabled", true);$("#Import_directSchema").attr( "disabled",false );$("#isDirect").attr( "disabled",false);$("#Import_uploaderOrg").attr( "disabled",false); $(\'input[id^="Import_mth"]\').attr( "disabled",false);$("#Import_flist").attr( "disabled",false);$(\'input[id^="Import_mth"]\').attr( "disabled",false );' /><s:select
 			name="flist" headerKey="0" headerValue="-- Select file--"
 			list="ftpFiles" listKey="name" listValue="name" disabled="true"
-			theme="simple" /> <font style="font-size: 10px;"><i>FTP:<s:property value="ntuaFtpServer" /></i></font></li>
+			theme="simple" /> <font style="font-size: 10px;"><i>NTUA
+		FTP:<s:property value="ntuaFtpServer" /></i></font></li>
 		<li><s:radio name="mth"
 			list="%{#{'urlupload':'Remote FTP/HTTP Upload'}}"
 			onclick='$(":input").attr("disabled", true);$("#Import_directSchema").attr( "disabled",false);$("#isDirect").attr( "disabled",false);$("#Import_uploaderOrg").attr( "disabled",false); $(\'input[id^="Import_mth"]\').attr( "disabled",false);$("#Import_uploadUrl").attr( "disabled",false);$(\'input[id^="Import_mth"]\').attr( "disabled",false );' /><s:textfield
