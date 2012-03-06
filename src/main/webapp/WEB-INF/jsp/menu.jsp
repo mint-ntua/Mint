@@ -15,7 +15,7 @@
 <% if( user != null ) {  %>
 <li><a href="Home" id="homemenu">Home</a></li>
 <li><a href="Profile"  id="profilemenu">My Profile</a></li>
-<% if( user.hasRight(User.SUPER_USER) && user.getOrganization()!=null && user.getOrganization().getName().equals("NTUA")) {  %>
+<% if( user.hasRight(User.SUPER_USER)) {  %>
 <li><a href="OutputXSD_input.action"  id="xsdmenu"><span>Output XSD</span></a></li>
 <%} %>
 <% if( user.hasRight(User.ADMIN)) {  %>

@@ -19,7 +19,7 @@ $("li a#xsdmenu").addClass("selected");
 </h1>
 
 
-   <%if(user.getOrganization()!=null && !user.getOrganization().getName().equals("NTUA")) {%>
+    <%if(!user.hasRight(User.SUPER_USER)) {%>
    
     <span class="errorMessage">ACCESS DENIED.</span>
    

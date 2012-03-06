@@ -5,7 +5,7 @@
 <h1>
 <p>Script</p>
 </h1>
- <%if(user.getOrganization()!=null && !user.getOrganization().getName().equals("NTUA")) {%>
+ <%if(!user.hasRight(User.SUPER_USER)) {%>
    
     <span class="errorMessage">ACCESS DENIED.</span>
    
